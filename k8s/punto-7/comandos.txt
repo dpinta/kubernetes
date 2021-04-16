@@ -1,0 +1,23 @@
+>> crear un sts para la bd
+		kubectl apply -f sts-db.yaml
+
+>> crear un headless para exponer la bd
+		kubectl apply -f headless-svc.yaml 
+
+>> Listar el headless
+		kubectl get svc -n name2
+
+>> Crear secret con la configuracion de la base de datos
+		kubectl apply -f secret-cnn-db.yaml
+
+>> Listar secret creado
+		kubectl get secrets -n name2
+
+>> Crear deploy de la aplicación
+		kubectl apply -f deployment.yaml 
+
+>> Listar deployment
+		kubectl get deploy -n name2
+
+>> Crear load balancer externo
+		kubectl apply -f lb-app.yaml
