@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  namespace: name2
+  name: sts-db
+  labels:
+    app: sts-db
+spec:
+  selector:
+    matchLabels:
+      app: sts-db
+  replicas: 1
+  serviceName: "sts-db"
+  template: 
+    metadata:
+      labels:
+        app: sts-db
+    spec:
+      containers:
+        - name: db
+          image: dpinta/bd-mysql
+          ports:
+            - containerPort: 3306

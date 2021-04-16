@@ -1,0 +1,13 @@
+>> crear pod para probar aplicación
+		kubectl apply -f pod-ubuntu.yaml
+
+>> Ingresar al pod 
+		kubectl exec -it ubuntu bash
+
+>> Instalar Curl
+		apt update
+		apt install curl
+
+>> Probar  servicios
+		curl 10.0.1.5:8080/api/personas/rango/20/40
+		curl 10.0.1.5:8080/api/personas/find/1

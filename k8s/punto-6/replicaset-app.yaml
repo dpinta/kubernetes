@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  namespace: name1
+  name: rc-aplicacion
+  labels:
+    app: aplicacion
+    project: final
+    tier: aplicacion
+spec:
+  replicas: 3
+  selector:
+    matchLabels: 
+      tier: aplicacion
+      app: aplicacion
+      project: final
+    matchExpressions: 
+      - {key: tier, operator: In, values: [aplicacion]}
+  template:
+    metadata:
+      labels:
+        app: aplicacion
+        project: final
+        tier: aplicacion
+    spec:
+      containers:
+      - image: dpinta/aplicacion:v1
+        name: aplicacion
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        env:
+        - name: host
+          valueFrom:
+            configMapKeyRef:
+              name: cm-env
+              key: MYSQL_DATABASE
+        - name: port
+          valueFrom:
+            configMapKeyRef:
+              name: cm-env
+              key: MYSQL_PORT
+      restartPolicy: Always

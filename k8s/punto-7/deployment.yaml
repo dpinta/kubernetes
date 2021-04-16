@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: name2
+  name: deploy-aplicacion
+  labels:
+    app: aplicacion
+spec:
+  selector:
+    matchLabels:
+      app: aplicacion
+  replicas: 4 
+  template:
+    metadata:
+      labels:
+        app: aplicacion
+    spec:
+      containers:
+        - name: aplicacion
+          image: dpinta/aplicacion:v1
+          ports:
+              - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: secreto1

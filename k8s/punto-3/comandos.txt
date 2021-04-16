@@ -1,0 +1,8 @@
+>> crear pod
+		kubectl apply -f pod-simple.yaml
+
+>> Obtener pod 
+		kubectl get pods
+
+>> ver información del pod
+		kubectl describe pod stack-punto-3

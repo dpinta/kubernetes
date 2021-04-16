@@ -1,0 +1,11 @@
+>> configurar proyecto
+		gcloud config set project kubernetes-309923
+
+>> configurar region de despliegue
+		gcloud config set compute/zone us-west1-a
+
+>> crear cluster 
+		gcloud container clusters create proyecto --num-nodes=3
+
+>> información del cluster
+		kubectl cluster-info

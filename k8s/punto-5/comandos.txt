@@ -1,0 +1,6 @@
+>> Crear los namespace
+		kubectl apply -f namespace1.yaml
+		kubectl apply -f namespace2.yaml
+
+>> Listar namespace
+		kubectl get namespaces

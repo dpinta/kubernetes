@@ -1,0 +1,35 @@
+>> Crear pod de base de datos
+		kubectl apply -f pod-database.yaml 
+
+
+>> Verificar pod en namespace name1
+		kubectl get pods -n name1
+
+>> Crear clusterIP para exponer la base de datos
+		kubectl apply -f clusterip-db.yaml 
+
+>> Crear config-map 
+		kubectl apply -f config-map.yaml  
+
+>> Crear replicaset de la aplicación
+		kubectl apply -f replicaset-app.yaml
+
+>> Verificar replicaset 
+		kubectl get pods -n name1
+
+>> Crear clusterIP para exponer la alicación
+		kubectl apply -f clusterip-app.yaml
+
+>> Crear un pod para probar la aplicación
+		kubectl apply -f pod-ubuntu.yaml
+
+>> Ingresar al pod 
+		kubectl exec -it ubuntu bash
+
+>> Instalar Curl
+		apt update
+		apt install curl
+
+>> Probar  servicios
+		curl -i http://my-cip-app.name1.svc.cluster.local/api/personas/rango/20/40
+		curl 10.0.1.5:8080/api/personas/find/1

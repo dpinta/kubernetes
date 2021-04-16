@@ -1,0 +1,6 @@
+>> Build
+	docker build -t aplicacion .
+>> Tag
+	docker tag aplicacion dpinta/aplicacion:v1
+>> Push
+	docker push dpinta/aplicacion

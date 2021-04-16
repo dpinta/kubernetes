@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm-env
+  namespace: name1
+data:
+  MYSQL_DATABASE: my-cip-service.name1.svc.cluster.local
+  MYSQL_PORT: "3306"
